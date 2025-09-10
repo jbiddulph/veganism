@@ -17,7 +17,7 @@ async function getTransporter() {
 }
 
 export async function sendVerificationEmail(email: string, token: string) {
-  const verificationUrl = `${process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/verify-email?token=${token}`
+  const verificationUrl = `${process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/verify-email?token=${token}`
   
   // Fallback to mock email if Mailtrap credentials not configured
   if (!process.env.MAILTRAP_USERNAME || !process.env.MAILTRAP_PASSWORD) {
@@ -50,7 +50,7 @@ export async function sendVerificationEmail(email: string, token: string) {
 }
 
 export async function sendPasswordResetEmail(email: string, token: string) {
-  const resetUrl = `${process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/reset-password?token=${token}`
+  const resetUrl = `${process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/reset-password?token=${token}`
   
   // Fallback to mock email if Mailtrap credentials not configured
   if (!process.env.MAILTRAP_USERNAME || !process.env.MAILTRAP_PASSWORD) {
